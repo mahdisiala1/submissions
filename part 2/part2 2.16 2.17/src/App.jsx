@@ -18,6 +18,8 @@ const App = () => {
     });
   }, []);
   const addperson = (event) => {
+    event.preventDefault();
+
     const person = {
       name: newName,
       number: newNumber,
@@ -33,8 +35,8 @@ const App = () => {
           .update(search.id, updatedPerson)
           .then((response) => {
             setPersons(
-              persons.filter((person) => {
-                person.id === search.id ? response : person;
+              persons.map((person) => {
+                return person.id === search.id ? response : person;
               })
             );
             setMessage(`changed number of ${newName} `);
@@ -47,8 +49,9 @@ const App = () => {
     } else {
       personService
         .create(person)
-        .then((returnedperson) => {
-          setPersons(persons.concat(returnedperson));
+        .then((returnedpersons) => {
+          console.log(returnedpersons);
+          setPersons(returnedpersons);
           setMessage(`created ${newName}`);
           setTimeout(() => setMessage(""), 5000);
           setNewName("");
