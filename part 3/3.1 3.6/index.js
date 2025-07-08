@@ -45,6 +45,11 @@ app.use(
 );
 
 //API Calls
+app.get("/", (request, response) => {
+  response.send(`
+  <h4>welcome to Phonebook </h4>
+`);
+});
 app.get("/api/persons", (request, response) => {
   response.json(persons);
 });
@@ -100,6 +105,7 @@ app.post("/api/persons", (request, response) => {
   }
 });
 //listener
+const port = process.env.port;
 app.listen(3001, () => {
-  console.log("Server running on port 3001");
+  console.log(`Server running on port ${port}`);
 });
