@@ -21,6 +21,13 @@ const Persons = ({ found, persons, deleter }) => {
             .map((person) => (
               <li key={person.name}>
                 {person.name} {person.number}
+                <button
+                  key={person.id}
+                  type="button"
+                  onClick={() => deleter(person.id)}
+                >
+                  delete
+                </button>
               </li>
             ))}
     </ul>
