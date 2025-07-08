@@ -45,6 +45,13 @@ app.use(
 );
 
 //API Calls
+app.get("/"),
+  (request, response) => {
+    response.send(`
+    <h4>welcome to phonebook</h4>
+    <h4>/api/persons</h4>
+    <h4>/info/</h4>`);
+  };
 app.get("/api/persons", (request, response) => {
   response.json(persons);
 });
