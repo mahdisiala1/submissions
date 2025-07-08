@@ -35,8 +35,8 @@ const App = () => {
           .update(search.id, updatedPerson)
           .then((response) => {
             setPersons(
-              persons.map((person) => {
-                return person.id === search.id ? response : person;
+              persons.filter((person) => {
+                person.id === search.id ? response : person;
               })
             );
             setMessage(`changed number of ${newName} `);
