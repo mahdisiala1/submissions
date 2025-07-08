@@ -18,8 +18,6 @@ const App = () => {
     });
   }, []);
   const addperson = (event) => {
-    event.preventDefault();
-
     const person = {
       name: newName,
       number: newNumber,
