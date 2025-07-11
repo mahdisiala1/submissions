@@ -51,7 +51,7 @@ const App = () => {
         .create(person)
         .then((returnedpersons) => {
           console.log(returnedpersons);
-          setPersons(returnedpersons);
+          setPersons(persons.concat(returnedpersons));
           setMessage(`created ${newName}`);
           setTimeout(() => setMessage(""), 5000);
           setNewName("");

@@ -1,9 +1,10 @@
 const Persons = ({ found, persons, deleter }) => {
+  console.log(persons);
   return (
     <ul>
       {!found
         ? persons.map((person) => (
-            <li key={person.name}>
+            <li key={person.id}>
               {person.name} {person.number}
               <button
                 key={person.id}
@@ -19,7 +20,7 @@ const Persons = ({ found, persons, deleter }) => {
               person.name.toLowerCase().includes(found.toLowerCase())
             )
             .map((person) => (
-              <li key={person.name}>
+              <li key={person.id}>
                 {person.name} {person.number}
                 <button
                   key={person.id}
