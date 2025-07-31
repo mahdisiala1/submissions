@@ -58,7 +58,9 @@ const App = () => {
           setNewNumber("");
         })
         .catch((e) => {
-          console.log(e);
+          console.log(e.response.data.error);
+          setWarning(e.response.data.error);
+          setTimeout(() => setWarning(""), 5000);
         });
     }
   };

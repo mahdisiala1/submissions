@@ -1,5 +1,4 @@
 const Persons = ({ found, persons, deleter }) => {
-  console.log(persons);
   return (
     <ul>
       {!found
